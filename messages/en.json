@@ -1,0 +1,36 @@
+{
+  "home": {
+    "hero": {
+      "title": "Discover and share your favorite games",
+      "subtitle": "Rate, review and connect with other gamers in the largest gaming community",
+      "cta": "Get Started",
+      "explore": "Explore Games"
+    },
+    "sections": {
+      "topRated": "Top Rated",
+      "popular": "Most Popular",
+      "mostPlayed": "Most Played",
+      "recent": "Recent Releases",
+      "upcoming": "Upcoming Releases",
+      "viewAll": "View all"
+    },
+    "stats": {
+      "games": "Games",
+      "users": "Users",
+      "reviews": "Reviews",
+      "community": "Community Members"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "trending": "Trending",
+    "playing": "Playing",
+    "favorites": "Favorites",
+    "search": "Search games..."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error loading data",
+    "noResults": "No results found"
+  }
+}
