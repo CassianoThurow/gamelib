@@ -5,6 +5,9 @@ import { TrendingUp, Flame, Award } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { getTrendingGames, convertRAWGGameToGame } from "@/lib/rawg-api"
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export default async function TrendingPage() {
   const [todayData, weekData, monthData] = await Promise.all([
     getTrendingGames("day", 1, 12),
