@@ -79,9 +79,7 @@ export default async function TrendingPage() {
             <div className="rounded-lg border border-border bg-card p-6">
               <h2 className="mb-4 text-xl font-semibold">Sobre os Jogos em Alta</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Os jogos em alta são calculados com base na atividade da comunidade, incluindo avaliações, comentários,
-                adições às bibliotecas e compartilhamentos. A lista é atualizada em tempo real para refletir o que está
-                sendo mais discutido e jogado pela comunidade GameLib.
+                Veja os jogos que estão fazendo sucesso e gerando mais interesse na comunidade de jogadores.
               </p>
             </div>
           </div>

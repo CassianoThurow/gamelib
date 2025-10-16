@@ -13,7 +13,8 @@ import {
 } from "@/lib/rawg-api"
 import { getTranslations } from "next-intl/server"
 
-export default async function HomePage() {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
   const t = await getTranslations("home")
 
   const [topRatedData, popularData, mostPlayedData, recentData, upcomingData] = await Promise.all([
@@ -61,7 +62,9 @@ export default async function HomePage() {
                 <Trophy className="h-6 w-6 text-primary" />
                 <h2 className="font-bold text-2xl">{t("sections.topRated")}</h2>
               </div>
-              <Button variant="ghost">{t("sections.viewAll")}</Button>
+              <Button variant="ghost" asChild>
+                <a href={`/${locale}/top-rated`}>{t("sections.viewAll")}</a>
+              </Button>
             </div>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
               {topRatedGames.map((game) => (
@@ -77,7 +80,9 @@ export default async function HomePage() {
                 <Star className="h-6 w-6 text-primary" />
                 <h2 className="font-bold text-2xl">{t("sections.popular")}</h2>
               </div>
-              <Button variant="ghost">{t("sections.viewAll")}</Button>
+              <Button variant="ghost" asChild>
+                <a href={`/${locale}/popular`}>{t("sections.viewAll")}</a>
+              </Button>
             </div>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
               {popularGames.map((game) => (
@@ -93,7 +98,9 @@ export default async function HomePage() {
                 <Flame className="h-6 w-6 text-primary" />
                 <h2 className="font-bold text-2xl">{t("sections.mostPlayed")}</h2>
               </div>
-              <Button variant="ghost">{t("sections.viewAll")}</Button>
+              <Button variant="ghost" asChild>
+                <a href={`/${locale}/most-played`}>{t("sections.viewAll")}</a>
+              </Button>
             </div>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
               {mostPlayedGames.map((game) => (
@@ -109,7 +116,9 @@ export default async function HomePage() {
                 <Calendar className="h-6 w-6 text-primary" />
                 <h2 className="font-bold text-2xl">{t("sections.recent")}</h2>
               </div>
-              <Button variant="ghost">{t("sections.viewAll")}</Button>
+              <Button variant="ghost" asChild>
+                <a href={`/${locale}/recent`}>{t("sections.viewAll")}</a>
+              </Button>
             </div>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
               {recentGames.map((game) => (
@@ -125,7 +134,9 @@ export default async function HomePage() {
                 <Rocket className="h-6 w-6 text-primary" />
                 <h2 className="font-bold text-2xl">{t("sections.upcoming")}</h2>
               </div>
-              <Button variant="ghost">{t("sections.viewAll")}</Button>
+              <Button variant="ghost" asChild>
+                <a href={`/${locale}/upcoming`}>{t("sections.viewAll")}</a>
+              </Button>
             </div>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
               {upcomingGames.map((game) => (
@@ -141,18 +152,6 @@ export default async function HomePage() {
                 <div className="text-center">
                   <div className="font-bold text-3xl text-primary">{topRatedData.count.toLocaleString()}+</div>
                   <div className="mt-2 text-sm text-muted-foreground">{t("stats.games")}</div>
-                </div>
-                <div className="text-center">
-                  <div className="font-bold text-3xl text-primary">200K+</div>
-                  <div className="mt-2 text-sm text-muted-foreground">{t("stats.users")}</div>
-                </div>
-                <div className="text-center">
-                  <div className="font-bold text-3xl text-primary">1M+</div>
-                  <div className="mt-2 text-sm text-muted-foreground">{t("stats.reviews")}</div>
-                </div>
-                <div className="text-center">
-                  <div className="font-bold text-3xl text-primary">500K+</div>
-                  <div className="mt-2 text-sm text-muted-foreground">{t("stats.community")}</div>
                 </div>
               </div>
             </div>

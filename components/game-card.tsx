@@ -1,7 +1,10 @@
+'use client'
+
 import Link from "next/link"
 import { Star } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { useRouter } from "next/navigation"
 
 interface GameCardProps {
   game: {
@@ -17,8 +20,10 @@ interface GameCardProps {
 }
 
 export function GameCard({ game, showUserRating }: GameCardProps) {
+  const router = useRouter()
+  const locale = typeof window !== "undefined" ? (router as any)?.locale || "pt" : "pt"
   return (
-    <Link href={`/game/${game.id}`}>
+    <Link href={`/${locale}/game/${game.id}`}>
       <Card className="group overflow-hidden transition-all hover:border-primary hover:shadow-lg hover:shadow-primary/20">
         <div className="relative aspect-[3/4] overflow-hidden bg-secondary">
           <img
